@@ -1,0 +1,253 @@
+    1  ls - al
+    2  cd documents
+    3  cd emms
+    4  mkdir emms
+    5  cs documents
+    6  touch readme.mf
+    7  touch readme.md
+    8  cd ..
+    9  ls - al
+   10  mkdir emms
+   11  cd documents
+   12  mkdir Emms
+   13  cd ..
+   14  ls - al
+   15  bahs
+   16  bash
+   17  ls - al
+   18  cd documents
+   19  ls
+   20  cd ..
+   21  cd documents
+   22  mkdir Emms
+   23  mkdir emms
+   24  ls-al
+   25  ls - al
+   26  ls - al
+   27  cd documents
+   28  ls - al
+   29  -al
+   30  ls - al
+   31  ls -al
+   32  cd documents
+   33  ls -al
+   34  ls
+   35  cd ..
+   36  cd documents
+   37  mkdir DE LUNA
+   38  ls
+   39  cd DE LUNA
+   40  ls
+   41  cd DE LUNA
+   42  cd..
+   43  cd ..
+   44  cd DE LUNA
+   45  touch text.txt
+   46  cd documents
+   47  cd DE LUNA
+   48  \
+   49  readme.md
+   50  mkdir DE LUNA
+   51  mkdir ems
+   52  ls
+   53  cd ems
+   54   ls
+   55  touch text.txt
+   56  rm text.txt
+   57  ls
+   58  touch readme.md
+   59  start readme.md
+   60  git init
+   61  cd .git
+   62  ls -al
+   63  cd ..
+   64  ls readme.md
+   65  git status
+   66  git add .
+   67  git status
+   68  git commit
+   69  git commit -m
+   70  git commit
+   71  git config
+   72  git commit -m
+   73  git commit -m
+   74  git commit -m "first commit"
+   75  git config --global user.name
+   76  git config --global user.name "emmsdeluna"
+   77  git config --global user.email
+   78  git config -- global user.email "emmanueldeluna.001@gmail.com"
+   79  git config user.email --"emmanueldeluna.001@gmail.com
+   80  emmanueldeluna.001@gmail.com
+   81  cd ..
+   82  git config --global user.emal "emmanueldeluna.001@gmail.com
+   83  git config --global user.email
+   84  git config --global user.email "emmanueldeluna.001@gmail.com
+   85  readme.md
+   86  git config --global user.email
+   87  emmanueldeluna.001@gmail.com
+   88  asd
+   89  asd
+   90  sad
+   91  cd ..
+   92  cd ..
+   93  git config --global user.email "emmanueldeluna001@gmail.com"
+   94  cd ..
+   95  sd
+   96  mkdir ems
+   97  cd ems
+   98  ls -al
+   99  git status
+  100  cd ems
+  101  ls -al
+  102  cd documents
+  103  ls -al
+  104  mkdir ems
+  105  cd ems
+  106  cd documents
+  107  cd ..
+  108  cd ..
+  109  cd documents
+  110  cd emms
+  111  ls
+  112  ls
+  113  touch text.txt
+  114  rm text.txt
+  115  ls
+  116   touch readme.md
+  117  start readme.md
+  118  git init
+  119  ls -al
+  120  git status
+  121  cd .git
+  122  ls -al
+  123  cd ..
+  124  ls readme.md
+  125  git status
+  126  git add
+  127  git  add .
+  128  git status
+  129  git commit
+  130  git commit -m
+  131  git commit -m "first commit"
+  132  git config --global user.name "emmsdeluna"
+  133  git config --global user.email "emmanueldeuna.001@gmail.com"
+  134  git config --global user.email
+  135  git commit -m "first commit"
+  136  git status
+  137  git branch
+  138  git branch -m main
+  139  git remote add origin https://github.com/emmsdeluna/Emmsdeluna.git
+  140  git push -u origin https://github.com/emmsdeluna/Emmsdeluna.git
+  141  git push -u origin main
+  142  start readme.md
+  143  git add .
+  144  git status
+  145  git commit -m "second message"
+  146  git commit -m "second message"
+  147  git push
+  148  start readme.md
+  149  git add .
+  150  git status
+  151  start  readme.md
+  152  git commit -m "second commit"
+  153  git commit -m "second commit"
+  154  git add.
+  155  git add .
+  156  git status
+  157  git push
+  158  git status
+  159  git push
+  160  git commit -m "second commit"
+  161  git push
+  162  cd ..
+  163  git clone https://github.com/emmsdeluna/Emmsdeluna.git
+  164  cd emms
+  165  cd emms
+  166  ls
+  167  history
+  168  touch history.txt
+  169  cd emm
+  170  cd documents
+  171  cd emms
+  172  cd ems
+  173  touch history.txt
+  174  start history.txt
+  175  ls
+  176  git status
+  177  git add .
+  178  git status
+  179  git push
+  180  git remote add origin https://github.com/emmsdeluna/Emmsdeluna.git
+  181  git push
+  182  git push - u origin https://github.com/emmsdeluna/Emmsdeluna.git
+  183  git push - origin main
+  184  git push - u origin main
+  185  git push -u origin main
+  186  cd ..
+  187  cd emms
+  188  cd emms
+  189  cd ems
+  190  cd..
+  191  cd ..
+  192  cd documents
+  193  cd emms
+  194  cd ..
+  195  cd emms
+  196  cd documents
+  197  cd ..
+  198  cd documents
+  199  cd documents
+  200  cd emms
+  201  cd ems
+  202  ls
+  203  git commit -m "third commit"
+  204  git status
+  205  git push
+  206  git add .
+  207  git status
+  208  git clone https://github.com/emmsdeluna/Emmsdeluna.git
+  209  cd emms
+  210  cd ems
+  211  ls
+  212  start history.txt
+  213  git push
+  214  git commit -m "third commit"
+  215  git add .
+  216  git commit -m "third commit"
+  217  git push
+  218  git status
+  219  git push --set-upstream origin master
+  220  git status
+  221  ls
+  222  history
+  223  touch
+  224  cd documents
+  225  cd ems
+  226  touch history.txt
+  227  start history.txt
+  228  git status
+  229  git add
+  230  git stastus
+  231  git status
+  232  git commit -m "3rd commit"
+  233  git status
+  234  git clone https://github.com/emmsdeluna/Emmsdeluna.git
+  235  cd ems
+  236  history
+  237  git status
+  238  touch historyy.txt
+  239  start historyy.txt
+  240  git status
+  241  git add .
+  242  git status
+  243  git commit -m "third commit"
+  244  git push
+  245  cd ..
+  246  git clonehttps://github.com/emmsdeluna/Emmsdeluna.git
+  247  git clone https://github.com/emmsdeluna/Emmsdeluna.git
+  248  cd Emssdeluna
+  249  cd Emmsdeluna
+  250  ls
+  251  touch history.txt
+  252  start history.txt
+  253  history
