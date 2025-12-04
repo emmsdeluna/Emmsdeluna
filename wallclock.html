@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Wall Clock</title>
+    <link rel="stylesheet" href="one.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </div>
+       
+        <h1 class="clock-title">
+            <span class="title-sub">WALL CLOCK</span>
+        </h1>
+       
+        <div class="clock-container">
+            <div class="clock-face">
+                <div class="clock-center"></div>
+               
+                <!-- Hour markers -->
+                <div class="marker marker-1"></div>
+                <div class="marker marker-2"></div>
+                <div class="marker marker-3"></div>
+                <div class="marker marker-4"></div>
+                <div class="marker marker-5"></div>
+                <div class="marker marker-6"></div>
+                <div class="marker marker-7"></div>
+                <div class="marker marker-8"></div>
+                <div class="marker marker-9"></div>
+                <div class="marker marker-10"></div>
+                <div class="marker marker-11"></div>
+                <div class="marker marker-12"></div>
+               
+                <!-- Hour numbers -->
+                <div class="number number-1">I</div>
+                <div class="number number-2">II</div>
+                <div class="number number-3">III</div>
+                <div class="number number-4">IV</div>
+                <div class="number number-5">V</div>
+                <div class="number number-6">VI</div>
+                <div class="number number-7">VII</div>
+                <div class="number number-8">VIII</div>
+                <div class="number number-9">IX</div>
+                <div class="number number-10">X</div>
+                <div class="number number-11">XI</div>
+                <div class="number number-12">XII</div>
+               
+                <!-- Clock hands -->
+                <div class="hand hour-hand" id="hour-hand"></div>
+                <div class="hand minute-hand" id="minute-hand"></div>
+                <div class="hand second-hand" id="second-hand"></div>
+               
+                <!-- Digital time display -->
+                <div class="digital-display">
+                    <div class="time" id="digital-time">00:00:00</div>
+                    <div class="date" id="digital-date">MON JAN 1</div>
+                </div>
+            </div>
+           
+            <!-- Clock controls -->
+            <div class="clock-controls">
+                <button class="control-btn" id="theme-mode">
+                    <i class="fas fa-palette"></i>
+                    <span>Theme</span>
+                </button>
+                <button class="control-btn" id="glow-mode">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Glow</span>
+                </button>
+                <button class="control-btn" id="sound-toggle">
+                    <i class="fas fa-volume-up"></i>
+                    <span>Sound</span>
+                </button>
+                <button class="control-btn" id="fullscreen-toggle">
+                    <i class="fas fa-expand"></i>
+                    <span>Fullscreen</span>
+                </button>
+            </div>
+           
+            <!-- World clocks panel -->
+            <div class="world-clocks-panel" id="world-clocks">
+                <div class="panel-header">
+                    <h3>World Clocks</h3>
+                    <button class="panel-close" id="close-world-clocks">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="world-clocks-list" id="world-clocks-list">
+                    <!-- World clocks will be populated here -->
+                </div>
+            </div>
+           
+            <!-- Settings panel -->
+            <div class="settings-panel" id="settings-panel">
+                <div class="panel-header">
+                    <h3>Clock Settings</h3>
+                    <button class="panel-close" id="close-settings">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <label for="clock-style">Clock Style</label>
+                        <select id="clock-style">
+                            <option value="classic">Classic</option>
+                            <option value="modern">Modern</option>
+                            <option value="minimal">Minimal</option>
+                            <option value="neon">Neon</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="time-format">Time Format</label>
+                        <select id="time-format">
+                            <option value="24h">24-Hour</option>
+                            <option value="12h">12-Hour</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="hand-style">Hand Style</label>
+                        <select id="hand-style">
+                            <option value="sleek">Sleek</option>
+                            <option value="traditional">Traditional</option>
+                            <option value="arrow">Arrow</option>
+                            <option value="glowing">Glowing</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="show-digital" checked>
+                            Show Digital Time
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="smooth-motion" checked>
+                            Smooth Motion
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Bottom navigation -->
+        <div class="bottom-nav">
+            <button class="nav-btn" id="world-clock-btn">
+                <i class="fas fa-globe-americas"></i>
+                World Time
+            </button>
+            <button class="nav-btn" id="alarm-btn">
+                <i class="fas fa-alarm-clock"></i>
+                Alarms
+            </button>
+            <button class="nav-btn" id="stopwatch-btn">
+                <i class="fas fa-stopwatch"></i>
+                Stopwatch
+            </button>
+            <button class="nav-btn" id="timer-btn">
+                <i class="fas fa-hourglass-half"></i>
+                Timer
+            </button>
+            <button class="nav-btn" id="settings-btn">
+                <i class="fas fa-cog"></i>
+                Settings
+            </button>
+        </div>
+    </div>
+   
+    <!-- Alarm panel -->
+    <div class="alarm-panel" id="alarm-panel">
+        <div class="panel-header">
+            <h3>Alarms</h3>
+            <button class="panel-close" id="close-alarm">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="alarm-content">
+            <div class="alarm-list" id="alarm-list">
+                <!-- Alarms will be populated here -->
+            </div>
+            <button class="add-alarm-btn" id="add-alarm">
+                <i class="fas fa-plus"></i> Add Alarm
+            </button>
+        </div>
+    </div>
+   
+    <!-- Stopwatch panel -->
+    <div class="stopwatch-panel" id="stopwatch-panel">
+        <div class="panel-header">
+            <h3>Stopwatch</h3>
+            <button class="panel-close" id="close-stopwatch">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="stopwatch-content">
+            <div class="stopwatch-display" id="stopwatch-display">00:00:00.00</div>
+            <div class="stopwatch-controls">
+                <button class="stopwatch-btn" id="start-stopwatch">Start</button>
+                <button class="stopwatch-btn" id="lap-stopwatch">Lap</button>
+                <button class="stopwatch-btn" id="reset-stopwatch">Reset</button>
+            </div>
+            <div class="lap-times" id="lap-times">
+                <!-- Lap times will be displayed here -->
+            </div>
+        </div>
+    </div>
+   
+    <!-- Timer panel -->
+    <div class="timer-panel" id="timer-panel">
+        <div class="panel-header">
+            <h3>Timer</h3>
+            <button class="panel-close" id="close-timer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="timer-content">
+            <div class="timer-display" id="timer-display">25:00</div>
+            <div class="timer-controls">
+                <button class="timer-btn" id="start-timer">Start</button>
+                <button class="timer-btn" id="pause-timer">Pause</button>
+                <button class="timer-btn" id="reset-timer">Reset</button>
+            </div>
+            <div class="timer-presets">
+                <button class="preset-btn" data-minutes="5">5 min</button>
+                <button class="preset-btn" data-minutes="10">10 min</button>
+                <button class="preset-btn" data-minutes="15">15 min</button>
+                <button class="preset-btn" data-minutes="25">25 min</button>
+                <button class="preset-btn" data-minutes="30">30 min</button>
+                <button class="preset-btn" data-minutes="60">60 min</button>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Particles background -->
+    <div class="particles-container" id="particles"></div>
+   
+    <!-- Audio for clock sounds -->
+    <audio id="tick-sound" src="https://assets.mixkit.co/active_storage/sfx/247/247-preview.mp3" preload="auto"></audio>
+    <audio id="alarm-sound" src="https://assets.mixkit.co/active_storage/sfx/250/250-preview.mp3" preload="auto"></audio>
+   
+    <script src="wall.js"></script>
+</body>
+</html>

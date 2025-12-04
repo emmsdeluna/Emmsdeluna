@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #0a0a1a;
+    --secondary-bg: #15152b;
+    --accent-color: #00ff9d;
+    --accent-glow: rgba(0, 255, 157, 0.5);
+    --accent-secondary: #05d9e8;
+    --accent-tertiary: #6c63ff;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --clock-face: #1a1a2e;
+    --clock-border: #2a2a4a;
+    --hand-hour: #ff2a6d;
+    --hand-minute: #05d9e8;
+    --hand-second: #00ff9d;
+    --marker-color: #6c63ff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s ease;
+    --glow-intensity: 1;
+}
+
+.light-theme {
+    --primary-bg: #f0f2f5;
+    --secondary-bg: #ffffff;
+    --accent-color: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.3);
+    --accent-secondary: #4285f4;
+    --accent-tertiary: #34a853;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --clock-face: #ffffff;
+    --clock-border: #e0e0e0;
+    --hand-hour: #ea4335;
+    --hand-minute: #4285f4;
+    --hand-second: #34a853;
+    --marker-color: #6c63ff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Exo 2', 'Orbitron', sans-serif;
+    background: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--text-primary);
+    transition: var(--transition);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    z-index: 10;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary-bg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg);
+    box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+.clock-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.title-glow {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary), var(--accent-tertiary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    text-shadow: 0 0 20px var(--accent-glow);
+    animation: pulse 3s infinite alternate;
+}
+
+.title-sub {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    letter-spacing: 5px;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.clock-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background: var(--clock-face);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 10px var(--clock-border),
+        0 20px 40px var(--shadow-color),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Hour markers */
+.marker {
+    position: absolute;
+    width: 4px;
+    height: 15px;
+    background: var(--marker-color);
+    left: 50%;
+    top: 10px;
+    transform-origin: bottom center;
+    transform: translateX(-50%);
+    opacity: 0.7;
+}
+
+.marker-1 { transform: translateX(-50%) rotate(30deg); }
+.marker-2 { transform: translateX(-50%) rotate(60deg); }
+.marker-3 { transform: translateX(-50%) rotate(90deg); }
+.marker-4 { transform: translateX(-50%) rotate(120deg); }
+.marker-5 { transform: translateX(-50%) rotate(150deg); }
+.marker-6 { transform: translateX(-50%) rotate(180deg); }
+.marker-7 { transform: translateX(-50%) rotate(210deg); }
+.marker-8 { transform: translateX(-50%) rotate(240deg); }
+.marker-9 { transform: translateX(-50%) rotate(270deg); }
+.marker-10 { transform: translateX(-50%) rotate(300deg); }
+.marker-11 { transform: translateX(-50%) rotate(330deg); }
+.marker-12 { transform: translateX(-50%) rotate(0deg); }
+
+/* Hour numbers */
+.number {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transform: translate(-50%, -50%);
+}
+
+.number-1 { top: 15%; left: 75%; }
+.number-2 { top: 25%; left: 93%; }
+.number-3 { top: 50%; left: 103%; }
+.number-4 { top: 75%; left: 93%; }
+.number-5 { top: 85%; left: 75%; }
+.number-6 { top: 90%; left: 50%; }
+.number-7 { top: 85%; left: 25%; }
+.number-8 { top: 75%; left: 7%; }
+.number-9 { top: 50%; left: -3%; }
+.number-10 { top: 25%; left: 7%; }
+.number-11 { top: 15%; left: 25%; }
+.number-12 { top: 10%; left: 50%; }
+
+/* Clock hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 10px 10px 0 0;
+    z-index: 5;
+    transition: transform 0.5s cubic-bezier(0.4, 2.3, 0.8, 1);
+}
+
+.hour-hand {
+    width: 6px;
+    height: 30%;
+    background: var(--hand-hour);
+    transform: translateX(-50%) rotate(0deg);
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.7);
+}
+
+.minute-hand {
+    width: 4px;
+    height: 40%;
+    background: var(--hand-minute);
+    transform: translateX(-50%) rotate(0deg);
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.7);
+}
+
+.second-hand {
+    width: 2px;
+    height: 45%;
+    background: var(--hand-second);
+    transform: translateX(-50%) rotate(0deg);
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+}
+
+/* Digital display */
+.digital-display {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.time {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.date {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+/* Clock controls */
+.clock-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--secondary-bg);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.control-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.control-btn span {
+    font-size: 0.8rem;
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    background: var(--secondary-bg);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    color: var(--accent-color);
+    background: rgba(0, 255, 157, 0.1);
+}
+
+.nav-btn i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.nav-btn span {
+    font-size: 0.7rem;
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* Panels */
+.world-clocks-panel,
+.settings-panel,
+.alarm-panel,
+.stopwatch-panel,
+.timer-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100%;
+    background: var(--secondary-bg);
+    padding: 25px;
+    box-shadow: 0 0 30px var(--shadow-color);
+    transition: right 0.5s ease;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.world-clocks-panel.active,
+.settings-panel.active,
+.alarm-panel.active,
+.stopwatch-panel.active,
+.timer-panel.active {
+    right: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.panel-close {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.panel-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* World clocks */
+.world-clocks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.world-clock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--primary-bg);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.world-clock-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.world-clock-info {
+    text-align: left;
+}
+
+.world-clock-city {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.world-clock-timezone {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.world-clock-time {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Settings */
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.setting-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.setting-group select,
+.setting-group input[type="text"],
+.setting-group input[type="number"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Exo 2', sans-serif;
+}
+
+.setting-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Stopwatch */
+.stopwatch-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+    margin: 20px 0;
+}
+
+.stopwatch-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stopwatch-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.stopwatch-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+.lap-times {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Timer */
+.timer-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+    margin: 20px 0;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.timer-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-secondary);
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.timer-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(5, 217, 232, 0.5);
+}
+
+.timer-presets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.preset-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Exo 2', sans-serif;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.preset-btn:hover {
+    background: var(--accent-tertiary);
+    color: white;
+}
+
+/* Alarm */
+.alarm-list {
+    margin-bottom: 20px;
+}
+
+.alarm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--primary-bg);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.alarm-item:hover {
+    transform: translateX(5px);
+}
+
+.alarm-time {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.alarm-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.alarm-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.alarm-action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.alarm-action-btn:hover {
+    color: var(--accent-color);
+}
+
+.add-alarm-btn {
+    width: 100%;
+    padding: 15px;
+    border: 2px dashed var(--accent-color);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--accent-color);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-alarm-btn:hover {
+    background: rgba(0, 255, 157, 0.1);
+}
+
+/* Particles */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        max-width: 350px;
+    }
+   
+    .clock-title {
+        font-size: 1.8rem;
+    }
+   
+    .title-sub {
+        font-size: 1rem;
+    }
+   
+    .clock-face {
+        max-width: 320px;
+        margin: 0 auto 20px;
+    }
+   
+    .number {
+        font-size: 1rem;
+    }
+   
+    .digital-display {
+        bottom: 15%;
+    }
+   
+    .time {
+        font-size: 1.2rem;
+    }
+   
+    .world-clocks-panel,
+    .settings-panel,
+    .alarm-panel,
+    .stopwatch-panel,
+    .timer-panel {
+        width: 300px;
+        right: -300px;
+    }
+   
+    .bottom-nav {
+        padding: 10px;
+    }
+   
+    .nav-btn {
+        padding: 5px;
+    }
+   
+    .nav-btn span {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        max-width: 300px;
+    }
+   
+    .clock-title {
+        font-size: 1.5rem;
+    }
+   
+    .clock-face {
+        max-width: 280px;
+    }
+   
+    .world-clocks-panel,
+    .settings-panel,
+    .alarm-panel,
+    .stopwatch-panel,
+    .timer-panel {
+        width: 280px;
+        right: -280px;
+    }
+}
