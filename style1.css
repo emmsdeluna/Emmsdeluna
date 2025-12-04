@@ -1,0 +1,156 @@
+General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background and Layout */
+body {
+    background: linear-gradient(135deg, rgb(5, 41, 87), lightblue, rgb(145, 1, 1));
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#main-title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Navigation */
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: blue;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: darkblue;
+}
+
+nav a.active {
+    background: darkblue;
+    font-weight: bold;
+}
+
+/* Card Design */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 700px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    margin: 5px 0 15px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    background: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: darkblue;
+}
+
+/* Multimedia */
+video, audio {
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.video-container video {
+    border: 4px solid blue;         
+    border-radius: 15px;           
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    transition: all 0.3s ease;   /* smooth animation */
+}
+
+.video-container video:hover {
+    box-shadow: 0px 0px 20px blue; /* glowing effect */
+    transform: scale(1.02);      /* slight zoom on hover */
+}
+
+/* Audio styling */
+.audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.audio-container audio {
+    border: 3px solid blue;        
+    border-radius: 12px;          /* rounded corners */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    padding: 5px;                 /* adds space inside border */
+    transition: all 0.3s ease;
+}
+
+.audio-container audio:hover {
+    box-shadow: 0px 0px 15px blue; /* glowing red on hover */
+    transform: scale(1.02);      /* slight zoo
